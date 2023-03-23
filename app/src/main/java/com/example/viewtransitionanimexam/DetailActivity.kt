@@ -3,6 +3,8 @@ package com.example.viewtransitionanimexam
 import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.transition.*
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,18 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
+        window.sharedElementEnterTransition = TransitionSet().apply {
+            interpolator = OvershootInterpolator(0.7f)
+            ordering = TransitionSet.ORDERING_TOGETHER
+            addTransition(ChangeBounds().apply{
+                pathMotion = ArcMotion()
+            })
+            duration = 2000
+            addTransition(ChangeTransform())
+            addTransition(ChangeClipBounds())
+            addTransition(ChangeImageTransform())
+        }
 
         val title: TextView = findViewById(R.id.titleTextDetail)
         val content: TextView = findViewById(R.id.contentTextDetail)

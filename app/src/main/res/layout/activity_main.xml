@@ -12,10 +12,9 @@
         android:layout_height="150dp"
         android:transitionName="imageTran"
         android:src="@android:mipmap/sym_def_app_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/titleTextMain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/titleTextMain"
@@ -26,7 +25,7 @@
         android:text="타이틀"
         android:textSize="18sp"
         android:transitionName="titleTran"
-        app:layout_constraintTop_toBottomOf="@id/imageViewMain" />
+        app:layout_constraintBottom_toTopOf="@+id/contentTextMain"/>
 
     <TextView
         android:id="@+id/contentTextMain"
@@ -36,7 +35,7 @@
         android:gravity="center"
         android:text="세부내용입니다. DevJYL Blog 화이팅"
         android:transitionName="contentTran"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextMain" />
+        app:layout_constraintBottom_toTopOf="@+id/btnMain"/>
 
     <Button
         android:id="@+id/btnMain"
@@ -44,9 +43,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="이동"
+        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contentTextMain" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
